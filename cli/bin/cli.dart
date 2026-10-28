@@ -23,6 +23,13 @@ void printUsage(){
   );
 }
 
+Future<String> getWiki(String article) async{
+  final url = Uri.http(
+    'en.wikipedia.org',
+    '/api/rest_v1/page/summary/$article',
+  );
+}
+
 void searchArt(List<String>? arguments){
   final String artTiT;
 
@@ -33,5 +40,5 @@ void searchArt(List<String>? arguments){
   } else {
     artTiT = arguments.join(' '); 
   }
-
 }
+
