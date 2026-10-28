@@ -11,8 +11,8 @@ void main(List<String> arguments){
   } else if(arguments.first == 'version'){
     print("Dart CLI version $version");
 
-  } else if(arguments.first == 'search'){
-
+  } else if(arguments.first == 'wikipedia'){
+    final inputArgs = arguments.length > 1 ? arguments.sublist(1) : null;
   }
 
 }
@@ -38,15 +38,26 @@ Future<String> getWiki(String article) async{
   return 'Error: Failed to fetch article "$article". Status code: ${response.statusCode}';
 }
 
-void searchArt(List<String>? arguments){
+void searchArt(List<String>? arguments) async {
   final String artTiT;
 
   if(arguments == null || arguments.isEmpty){
-    print("Please write artical name: ");
-    artTiT = stdin.readLineSync() ?? '';
+    print("Please provide an article title.");
+
+    final inputFromStdin = stdin.readLineSync();
+    if(inputFromStdin == null || inputFromStdin.isEmpty){
+      print('No article title provided. Exiting.');
+      return;
+    }
+
+  artTiT = inputFromStdin;
 
   } else {
     artTiT = arguments.join(' '); 
   }
+
+  print('Looking up articles about "$artTiT". Please wait.');
+  var artContent = await getWiki(artTiT);
+  print(artContent);
 }
 
