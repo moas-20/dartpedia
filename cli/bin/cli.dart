@@ -10,7 +10,9 @@ void main(List<String> arguments){
   } else if(arguments.first == 'version'){
     print("Dart CLI version $version");
 
-  } 
+  } else if(arguments.first == 'search'){
+
+  }
 
 }
 
@@ -18,4 +20,17 @@ void printUsage(){
   print(
     "This commands are valid: 'help' , 'version' , 'search <ARTICLE-TITLE>'."
   );
+}
+
+void searchArt(List<String>? arguments){
+  final String artTiT;
+
+  if(arguments == null || arguments.isEmpty){
+    print("Please write artical name: ");
+    artTiT = stdin.readLineSync() ?? '';
+
+  } else {
+    artTiT = arguments.join(' ');
+  }
+
 }
