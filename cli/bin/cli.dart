@@ -1,5 +1,16 @@
-import 'package:cli/cli.dart' as cli;
+import 'dart:io';
 
-void main(List<String> arguments) {
-  print('Hello world: ${cli.calculate()}!');
+const version = '0.0.1';
+
+void main(List<String> arguments){
+
+  if(arguments.first == 'help' || arguments.isEmpty){
+    
+  }
+}
+
+void printUsage(){
+  print(
+    "This commands are valid: 'help' , 'version' , 'search <ARTICLE-TITLE>'."
+  );
 }
