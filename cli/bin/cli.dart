@@ -28,6 +28,14 @@ Future<String> getWiki(String article) async{
     'en.wikipedia.org',
     '/api/rest_v1/page/summary/$article',
   );
+
+  final response = await http.get(url);
+
+  if(response.statusCode == 200){
+    return response.body;
+  }
+
+  return 'Error: Failed to fetch article "$article". Status code: ${response.statusCode}';
 }
 
 void searchArt(List<String>? arguments){
