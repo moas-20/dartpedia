@@ -23,7 +23,7 @@ void main(List<String> arguments){
 
 void printUsage(){
   print(
-    "This commands are valid: 'help' , 'version' , 'search <ARTICLE-TITLE>'."
+    "This commands are valid: 'help' , 'version' , 'wikipedia <ARTICLE-TITLE>'."
   );
 }
 
