@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:http/http.dart' as http;
 
 const version = '0.0.1';
 
@@ -30,7 +31,7 @@ void searchArt(List<String>? arguments){
     artTiT = stdin.readLineSync() ?? '';
 
   } else {
-    artTiT = arguments.join(' ');
+    artTiT = arguments.join(' '); 
   }
 
 }
