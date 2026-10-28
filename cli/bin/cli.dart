@@ -13,6 +13,10 @@ void main(List<String> arguments){
 
   } else if(arguments.first == 'wikipedia'){
     final inputArgs = arguments.length > 1 ? arguments.sublist(1) : null;
+    searchArt(inputArgs);
+
+  } else{
+    printUsage();
   }
 
 }
