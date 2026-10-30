@@ -31,7 +31,7 @@ class ArgResult {
   Map<Option , Object?> options = {};
 
 
-  bool flag(String input){
+  bool flag(String name){
     for(var option in options.keys.where(
       (option) => option.type == OptionType.flag,
 
